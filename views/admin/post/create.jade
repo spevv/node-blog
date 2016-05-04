@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+    h1 Create post
+    div Breadcrumbs:
+        ul
+            each breadcrumb in breadcrumbs
+                li: a(href="#{breadcrumb.url}") #{breadcrumb.name}
+
+    form(name="create-post", method="post")
+        div.input
+            span.label Title
+            br
+            input(type="text", name="title")
+        div.input
+            span.label Description
+            br
+            textarea(name="text", cols="40", rows="5")
+        div.actions
+            input(type="submit", value="add")

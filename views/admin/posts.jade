@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+    h1 All posts
+
+    div Breadcrumbs:
+        ul
+            each breadcrumb in breadcrumbs
+                li: a(href="#{breadcrumb.url}") #{breadcrumb.name}
+
+    div
+        h3
+            a(class='button', href='/admin/post') Create new post
+
+    each post in posts
+        div
+            =post.id
+            =post.title
+            <a href="/admin/post/#{post.id}">edite</a>
+            <a href="/admin/post/delete/#{post.id}">delete</a>
+            <br>
+            =post.text
+

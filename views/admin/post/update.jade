@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+    h1 Update post
+
+    div Breadcrumbs:
+        ul
+            each breadcrumb in breadcrumbs
+                li: a(href="#{breadcrumb.url}") #{breadcrumb.name}
+
+    form(name="create-post", method="POST", action="/admin/post/#{post.id}")
+        div.input
+            span.label Title
+            br
+            input(type="text", name="title", value= post.title)
+        div.input
+            span.label Description
+            br
+            textarea(name="text", cols="40", rows="5")
+                = post.text
+            input(type="hidden", name="_method", value="PUT")
+        div.actions
+            input(type="submit", value="edite")
